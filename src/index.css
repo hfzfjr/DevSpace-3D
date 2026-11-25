@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --target-size: 24px;
+  }
+
+  @media (pointer: coarse) {
+    :root {
+      --target-size: 44px;
+    }
+  }
+
   html,
   body,
   #root {
@@ -8,6 +18,25 @@
     height: 100dvh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+  }
+
+  body {
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  :where(button, [role="button"], nav a) {
+    min-block-size: var(--target-size);
+    min-inline-size: var(--target-size);
   }
 }
